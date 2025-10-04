@@ -30,3 +30,12 @@ func NewMemoryCache() *Cache {
 
 	return c
 }
+
+func NewMemoryCacheWithSize(cacheSize int) *Cache {
+	c := &Cache{
+		doMap:   map[string]*call{},
+		storage: freecache.NewCache(cacheSize),
+	}
+
+	return c
+}
